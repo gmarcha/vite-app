@@ -6,5 +6,5 @@ namespace: vite-app
 resources:
 - namespace.yaml
 - deployment.yaml
-- service.yaml
+- svc.yaml
 - ingress.yaml
