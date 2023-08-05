@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vite-app
+  namespace: vite-app
+spec:
+  tls:
+  - hosts:
+    - gamarcha.com
+    secretName: gamarcha.com-tls
+  rules:
+  - host: gamarcha.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: vite-app
+            port:
+              number: 80
