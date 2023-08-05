@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: vite-app
-        image: ghcr.io/gmarcha/vite-app:latest
+        image: ghcr.io/gmarcha/vite-app:release
         ports:
         - containerPort: 3000
       imagePullSecrets:
