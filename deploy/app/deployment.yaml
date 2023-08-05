@@ -20,4 +20,3 @@ spec:
         - containerPort: 3000
       imagePullSecrets:
       - name: ghcr
-        namespace: flux-system
