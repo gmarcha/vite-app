@@ -7,7 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   rules:
-  - host: gamarcha.com
+  - host: gmarcha.com
     http:
       paths:
       - path: /
@@ -18,6 +18,6 @@ spec:
             port:
               name: http
   tls:
-  - secretName: gamarcha.com-tls
+  - secretName: gmarcha.com-tls
     hosts:
-    - gamarcha.com
+    - gmarcha.com
