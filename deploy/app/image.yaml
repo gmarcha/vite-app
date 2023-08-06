@@ -42,7 +42,7 @@ metadata:
   name: vite-app
   namespace: vite-app
 spec:
-  interval: 30m
+  interval: 5m
   sourceRef:
     kind: GitRepository
     name: vite-app
