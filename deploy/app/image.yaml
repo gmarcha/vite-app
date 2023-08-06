@@ -9,6 +9,7 @@ spec:
   interval: 5m
   secretRef:
     name: ghcr
+    namespace: vite-app
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
