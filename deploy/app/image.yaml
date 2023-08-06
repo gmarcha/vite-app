@@ -46,5 +46,4 @@ spec:
     push:
       branch: master
   update:
-    path: ./deploy/app
     strategy: Setters
