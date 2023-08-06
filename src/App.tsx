@@ -26,7 +26,9 @@ function App() {
         <Canvas shadows camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}>
           {/* <CameraControls makeDefault /> */}
           <OrbitControls
-            enablePan={true}
+            autoRotate
+            autoRotateSpeed={-0.1}
+            enablePan={false}
             enableZoom={false}
             minPolarAngle={Math.PI / 2.8}
             maxPolarAngle={Math.PI / 2.8}
