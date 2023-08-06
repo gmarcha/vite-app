@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/css": "^11.11.2",
     "@fontsource-variable/roboto-mono": "^5.0.8",
     "@mantine/core": "^6.0.17",
     "@react-three/drei": "^9.80.1",
