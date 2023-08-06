@@ -38,7 +38,7 @@ function App() {
         <div style={{ fontFamily: 'Roboto Mono Variable', fontWeight: 300, fontSize: '2rem', padding: '1.2rem 2.4rem', position: 'absolute', top: 0, left: 0, zIndex: 1000 }}>
           gmarcha's room
         </div>
-        <div style={{ padding: '1.2rem 2.4rem', position: 'absolute', top: 0, right: 0, zIndex: 1000 }}>
+        <div style={{ padding: '1.2rem 2.4rem', position: 'absolute', bottom: 0, right: 0, zIndex: 1000 }}>
           <a href="https://github.com/gmarcha" target="_blank" rel="noreferrer">
             <ActionIcon size="xl" radius="xl" variant="unstyled">
               <IconBrandGithub color="white" />
