@@ -1,0 +1,24 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: vite-app
+  namespace: vite-app
+spec:
+  image: ghcr.io/gmarcha/vite-app
+  interval: 5m
+  secretRef:
+    name: ghcr
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: vite-app
+  namespace: vite-app
+spec:
+  imageRepositoryRef:
+    name: vite-app
+    namespace: vite-app
+  policy:
+    semver:
+      range: 0.0.x
