@@ -2,7 +2,6 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { EffectComposer, Bloom, DepthOfField } from '@react-three/postprocessing'
-import { ActionIcon } from '@mantine/core';
 import { IconBrandGithub } from '@tabler/icons-react';
 import '@fontsource-variable/roboto-mono'
 
