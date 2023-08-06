@@ -6,18 +6,18 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  tls:
-  - hosts:
-    - gamarcha.com
-    secretName: gamarcha.com-tls
   rules:
   - host: gamarcha.com
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: /
+        pathType: ImplementationSpecific
         backend:
           service:
             name: vite-app
             port:
-              number: 80
+              name: http
+  tls:
+  - secretName: gamarcha.com-tls
+    hosts:
+    - gamarcha.com
