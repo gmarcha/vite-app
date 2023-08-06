@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, MeshDistortMaterial, Html } from "@react-three/drei";
 
 function Isometric(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials }: any = useGLTF("/isometric.glb");
@@ -22,14 +22,28 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
               material={materials.leaf}
               position={[0.365, 2.984, -0.105]}
               rotation={[0, 1.146, 0]}
-            />
+            >
+              <MeshDistortMaterial
+                speed={2.5}
+                distort={0.35}
+                color={[0.086, 0.58, 0.12]}
+                roughness={0.3}
+              />
+            </mesh>
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.Object_15.geometry}
               material={materials.leaf}
               position={[0.144, 5.128, 0.629]}
-            />
+            >
+              <MeshDistortMaterial
+                speed={2.5}
+                distort={0.35}
+                color={[0.086, 0.58, 0.12]}
+                roughness={0.3}
+              />
+            </mesh>
             <mesh
               castShadow
               receiveShadow
@@ -38,7 +52,14 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
               position={[-0.596, 4.4, -0.245]}
               rotation={[-2.687, 1.381, 2.411]}
               scale={0.908}
-            />
+            >
+              <MeshDistortMaterial
+                speed={2.5}
+                distort={0.35}
+                color={[0.086, 0.58, 0.12]}
+                roughness={0.3}
+              />
+            </mesh>
             <mesh
               castShadow
               receiveShadow
@@ -122,7 +143,24 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
         material={materials.Black}
         position={[-1.747, 1.616, 1.415]}
         rotation={[0, 0, -Math.PI / 2]}
-      />
+      >
+        <Html
+          castShadow
+          receiveShadow
+          occlude="blending"
+          transform
+          position={[-0.13, 0.08, 0.89]}
+          rotation={[-Math.PI / 2, 0, Math.PI / 2]}
+        >
+          <iframe
+            title="embed"
+            width={145}
+            height={167}
+            src="https://docs.pmnd.rs/react-three-fiber/getting-started/examples"
+            frameBorder={0}
+          />
+        </Html>
+      </mesh>
       <mesh
         castShadow
         receiveShadow
