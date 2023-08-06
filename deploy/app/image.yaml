@@ -3,7 +3,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: vite-app
-  namespace: vite-app
+  namespace: flux-system
 spec:
   image: ghcr.io/gmarcha/vite-app
   interval: 5m
@@ -14,11 +14,37 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: vite-app
-  namespace: vite-app
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: vite-app
-    namespace: vite-app
+    namespace: flux-system
   policy:
     semver:
       range: 0.0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  git:
+    checkout:
+      ref:
+        branch: master
+    commit:
+      author:
+        email: gmarcha@github.com
+        name: gmarcha
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: master
+  update:
+    path: ./deploy/cluster
+    strategy: Setters
