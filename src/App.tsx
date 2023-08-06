@@ -34,15 +34,13 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh' }}>
-        <div style={{ margin: '1.2rem 2.4rem', fontFamily: 'Roboto Mono Variable', fontWeight: 300, fontSize: '2rem', position: 'absolute', top: 0, left: 0, zIndex: 1000 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100dvh' }}>
+        <div style={{ margin: '1.2rem 2.4rem', fontFamily: 'Roboto Mono Variable', fontWeight: 360, fontSize: '2rem',  position: 'absolute', top: 0, left: 0, zIndex: 1000 }}>
           gmarcha's room
         </div>
-        <div style={{ margin: '1.2rem 2.4rem', position: 'absolute', bottom: 0, left: 0, zIndex: 1000 }}>
+        <div style={{ margin: '1.8rem 2.4rem', position: 'absolute', bottom: 0, left: 0, zIndex: 1000 }}>
           <a href="https://github.com/gmarcha" target="_blank" rel="noreferrer">
-            <ActionIcon size="xl" radius="xl" variant="unstyled">
-              <IconBrandGithub color="white" />
-            </ActionIcon>
+            <IconBrandGithub size={48} stroke={1.5} color="white" />
           </a>
         </div>
       </div>
