@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: vite-app
-        image: ghcr.io/gmarcha/vite-app:0.0.6 # {"$imagepolicy": "vite-app:vite-app"}
+        image: ghcr.io/gmarcha/vite-app:0.0.7 # {"$imagepolicy": "vite-app:vite-app"}
         ports:
         - name: http
           containerPort: 3000
