@@ -45,8 +45,8 @@ spec:
   interval: 5m
   sourceRef:
     kind: GitRepository
-    name: vite-app
-    namespace: vite-app
+    name: flux-system
+    namespace: flux-system
   git:
     checkout:
       ref:
