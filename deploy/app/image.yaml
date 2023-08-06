@@ -23,6 +23,19 @@ spec:
     semver:
       range: 0.0.x
 ---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: vite-app
+  namespace: vite-app
+spec:
+  interval: 5m0s
+  url: https://github.com/gmarcha/vite-app
+  ref:
+    branch: master
+  secretRef:
+    name: ghr
+---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
@@ -32,8 +45,8 @@ spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
-    name: flux-system
-    namespace: flux-system
+    name: vite-app
+    namespace: vite-app
   git:
     checkout:
       ref:
