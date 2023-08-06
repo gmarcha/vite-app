@@ -23,8 +23,8 @@ const Overlay = () => {
           padding: 0.7rem 0.5rem 0.3rem 0.6rem;
           border-radius: 100%;
           position: absolute;
-          bottom: 1.8rem;
-          left: 2.4rem;
+          bottom: 1.2rem;
+          right: 1.8rem;
           z-index: 1000;
           &:hover {
             background-color: #61677a26;
@@ -33,7 +33,7 @@ const Overlay = () => {
         `}
       >
         <a href="https://github.com/gmarcha" target="_blank" rel="noreferrer">
-          <IconBrandGithub size={48} stroke={1.5} color="white" />
+          <IconBrandGithub size={48} stroke={1.2} color="white" />
         </a>
       </div>
     </>
