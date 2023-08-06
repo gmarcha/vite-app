@@ -21,7 +21,7 @@ spec:
     namespace: vite-app
   policy:
     semver:
-      range: 0.0.x
+      range: '>0.0.0 <1.0.0'
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
@@ -60,3 +60,4 @@ spec:
       branch: master
   update:
     strategy: Setters
+    path: ./deploy/app
