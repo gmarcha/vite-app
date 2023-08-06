@@ -20,7 +20,7 @@ function App() {
       <div
         className={css`
           width: 100%;
-          height: 100dvh;
+          height: 100vh;
         `}
       >
         <Canvas shadows camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}>
