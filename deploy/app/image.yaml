@@ -3,23 +3,22 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: vite-app
-  namespace: flux-system
+  namespace: vite-app
 spec:
   image: ghcr.io/gmarcha/vite-app
   interval: 5m
   secretRef:
     name: ghcr
-    namespace: vite-app
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: vite-app
-  namespace: flux-system
+  namespace: vite-app
 spec:
   imageRepositoryRef:
     name: vite-app
-    namespace: flux-system
+    namespace: vite-app
   policy:
     semver:
       range: 0.0.x
@@ -27,8 +26,8 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system
-  namespace: flux-system
+  name: vite-app
+  namespace: vite-app
 spec:
   interval: 30m
   sourceRef:
