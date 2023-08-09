@@ -24,8 +24,8 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
               rotation={[0, 1.146, 0]}
             >
               <MeshDistortMaterial
-                speed={2.5}
-                distort={0.35}
+                speed={1}
+                distort={0.5}
                 color={[0.086, 0.58, 0.12]}
                 roughness={0.3}
               />
@@ -38,8 +38,8 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
               position={[0.144, 5.128, 0.629]}
             >
               <MeshDistortMaterial
-                speed={2.5}
-                distort={0.35}
+                speed={1}
+                distort={0.5}
                 color={[0.086, 0.58, 0.12]}
                 roughness={0.3}
               />
@@ -54,8 +54,8 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
               scale={0.908}
             >
               <MeshDistortMaterial
-                speed={2.5}
-                distort={0.35}
+                speed={1}
+                distort={0.5}
                 color={[0.086, 0.58, 0.12]}
                 roughness={0.3}
               />
@@ -132,6 +132,7 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
         <mesh
           castShadow
           receiveShadow
+          // position={[-0.08, 0, 0]}
           geometry={nodes.Plane015_3.geometry}
           material={materials.Black}
         />
@@ -149,15 +150,15 @@ function Isometric(props: JSX.IntrinsicElements["group"]) {
           receiveShadow
           occlude="blending"
           transform
+          distanceFactor={4}
           position={[-0.13, 0.08, 0.89]}
           rotation={[-Math.PI / 2, 0, Math.PI / 2]}
         >
           <iframe
             title="embed"
-            width={145}
-            height={167}
+            width={370}
+            height={420}
             src="https://docs.pmnd.rs/react-three-fiber/getting-started/examples"
-            frameBorder={0}
           />
         </Html>
       </mesh>
