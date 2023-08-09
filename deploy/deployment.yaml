@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vite-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vite-app
+  template:
+    metadata:
+      labels:
+        app: vite-app
+    spec:
+      containers:
+      - name: vite-app
+        image: ghcr.io/gmarcha/vite-app:1.0.1 # {"$imagepolicy": "vite-app:vite-app"}
+        ports:
+        - name: http
+          containerPort: 3000
+      imagePullSecrets:
+      - name: ghcr
