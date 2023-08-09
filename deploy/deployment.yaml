@@ -15,11 +15,7 @@ spec:
     spec:
       containers:
       - name: vite-app
-<<<<<<< HEAD:deploy/deployment.yaml
-        image: ghcr.io/gmarcha/vite-app:1.0.1 # {"$imagepolicy": "vite-app:vite-app"}
-=======
         image: ghcr.io/gmarcha/vite-app:0.1.2 # {"$imagepolicy": "vite-app:vite-app"}
->>>>>>> 940962682d138433dd62521fc2af65ad28c97cba:deploy/app/deployment.yaml
         ports:
         - name: http
           containerPort: 3000
