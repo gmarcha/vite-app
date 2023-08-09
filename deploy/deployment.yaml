@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vite-app
+  namespace: vite-app
 spec:
   replicas: 1
   selector:
