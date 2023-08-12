@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vite-app
-  namespace: vite-app
 spec:
   replicas: 1
   selector:
@@ -19,5 +18,8 @@ spec:
         ports:
         - name: http
           containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: production
       imagePullSecrets:
       - name: ghcr

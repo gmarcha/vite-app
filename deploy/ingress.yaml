@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: vite-app
-  namespace: vite-app
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
