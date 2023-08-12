@@ -14,6 +14,9 @@ dependencies:
   '@mantine/core':
     specifier: ^6.0.17
     version: 6.0.17(@emotion/react@11.11.1)(@mantine/hooks@6.0.17)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
+  '@react-three/a11y':
+    specifier: ^3.0.0
+    version: 3.0.0(@react-three/fiber@8.13.6)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
   '@react-three/drei':
     specifier: ^9.80.1
     version: 9.80.1(@react-three/fiber@8.13.6)(@types/three@0.154.0)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
@@ -35,6 +38,9 @@ dependencies:
   three:
     specifier: ^0.155.0
     version: 0.155.0
+  three-stdlib:
+    specifier: ^2.24.2
+    version: 2.24.2(three@0.155.0)
 
 devDependencies:
   '@types/react':
@@ -1005,6 +1011,23 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
+  /@react-three/a11y@3.0.0(@react-three/fiber@8.13.6)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0):
+    resolution: {integrity: sha512-lnKIK8oPQBDWdzVMKm4kNi7W8RoGE7s5sHbw7Wz++MhyXih5L4aLyNkWedCn9v/PjRl2x3zIbzzZIWqoabwkJA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@react-three/fiber': '>=8.0'
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.133.0'
+    dependencies:
+      '@react-three/fiber': 8.13.6(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      three: 0.155.0
+      utility-types: 3.10.0
+      zustand: 3.7.2(react@18.2.0)
+    dev: false
+
   /@react-three/drei@9.80.1(@react-three/fiber@8.13.6)(@types/three@0.154.0)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0):
     resolution: {integrity: sha512-BlntSFEQb+Zhtj1zVfVv4ts/Co6GUBeZLPgG4SYhecKdGy1ctFaH2Tb8Z8HIl8PToUeWEDfKO4g4+/pE89YrEw==}
     peerDependencies:
@@ -1038,7 +1061,7 @@ packages:
       suspend-react: 0.1.3(react@18.2.0)
       three: 0.155.0
       three-mesh-bvh: 0.6.3(three@0.155.0)
-      three-stdlib: 2.24.1(three@0.155.0)
+      three-stdlib: 2.24.2(three@0.155.0)
       troika-three-text: 0.47.2(three@0.155.0)
       utility-types: 3.10.0
       zustand: 3.7.2(react@18.2.0)
@@ -1094,7 +1117,7 @@ packages:
       postprocessing: 6.32.2(three@0.155.0)
       react: 18.2.0
       three: 0.155.0
-      three-stdlib: 2.24.1(three@0.155.0)
+      three-stdlib: 2.24.2(three@0.155.0)
     transitivePeerDependencies:
       - '@types/three'
     dev: false
@@ -2643,8 +2666,8 @@ packages:
       three: 0.155.0
     dev: false
 
-  /three-stdlib@2.24.1(three@0.155.0):
-    resolution: {integrity: sha512-imb4IQPtp6hGurwZhfv3K6MCxS/IhXmG6FZxxuVsERwZiVH7KjeHUFT66Jlqs8WC4f3pYkXrH7ht8HpdGcXlMQ==}
+  /three-stdlib@2.24.2(three@0.155.0):
+    resolution: {integrity: sha512-+FWg+evDvjcuwIYopqEz6xCrqadSW6j855EV4/5w/kygwEc2BktB7s4Y8iZEQKGq8g6Srfj5eWQpSK0+51C4Hg==}
     peerDependencies:
       three: '>=0.128.0'
     dependencies:
