@@ -69,11 +69,13 @@ For 3D integration, three.js is a very known library in javascript ecosystem. It
 
 Use `node`/`pnpm` to start and use project locally. You could like to use `docker compose` to integrate other services with a `Vite` application, manage multiple applications or to build a micro-service architecture. However micro-service architecture depends on complex interconnectivity between components of an ecosystem, thus requires intensive proxying or a service-mesh based architecture. Kubernetes helps to leverage this kind of architecture.
 
-Configuration related to repository or application lifecycle lies on repository root:
-- repository configuration (`/.gitignore`, `/.gitattributes`),
-- application lifecycle management (`/Makefile`, `/Dockerfile.{dev,prod}`, `/docker-compose.yaml`),
-- application configuration (`/package.json`, `/tsconfig*.json`, `/vite.config.ts` and `/.eslintrc.cjs`),
-- application entrypoint (`/index.html`).
+### `/` repository root
+
+- Configuration related to repository or application lifecycle lies on repository root:
+  - repository configuration (`/.gitignore`, `/.gitattributes`),
+  - application lifecycle management (`/Makefile`, `/Dockerfile.{dev,prod}`, `/docker-compose.yaml`),
+  - application configuration (`/package.json`, `/tsconfig*.json`, `/vite.config.ts` and `/.eslintrc.cjs`),
+  - application entrypoint (`/index.html`).
 
 ### `/.github/` directory
 
