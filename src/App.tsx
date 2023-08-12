@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { A11yAnnouncer } from "@react-three/a11y";
 import {
   EffectComposer,
   Bloom,
@@ -9,8 +10,8 @@ import {
 } from "@react-three/postprocessing";
 
 import "./App.css";
-import Isometric from "./Isometric";
-import Overlay from "./Overlay";
+import Overlay from "./components/Overlay";
+import Room from "./components/Room";
 
 function App() {
   return (
@@ -23,7 +24,13 @@ function App() {
           height: 100vh;
         `}
       >
-        <Canvas shadows camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}>
+        <Canvas
+          className={css`
+            background: #232323;
+          `}
+          shadows
+          camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}
+        >
           {/* <CameraControls makeDefault /> */}
           <OrbitControls
             autoRotate
@@ -50,7 +57,7 @@ function App() {
             />
           </directionalLight>
           <Suspense fallback={null}>
-            <Isometric />
+            <Room />
             <EffectComposer>
               {/* <Bloom intensity={0.1} luminanceThreshold={0.01} />
             <Bloom intensity={1} luminanceThreshold={0.1} /> */}
@@ -69,9 +76,9 @@ function App() {
               {/* <SSAO /> */}
               {/* <Glitch delay={[1, 3]} duration={[0.5, 0.01]} ratio={1} strength={[0.03, 0.06]} /> */}
             </EffectComposer>
-            {/* <Environment background preset="sunset" /> */}
           </Suspense>
         </Canvas>
+        <A11yAnnouncer />
       </div>
     </>
   );
