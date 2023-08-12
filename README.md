@@ -64,6 +64,10 @@ Manage and monitor Kubernetes resources using these rules based on Kustomize:
 
 ### `/.github` directory
 
+Configuration related to repository or application lifecycle lies on repository root:
+- application lifecycle management (`Makefile`, `Dockerfile.{dev,prod}`, `docker-compose.yaml`),
+- configuration for application (`package.json`, `*-lock.yaml`, `tsconfig*.json`, `vite.config.ts` and `.eslintrc.cjs`).
+
 ## Toolchain
 
 ## Roadmap
