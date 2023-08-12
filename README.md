@@ -56,6 +56,14 @@ Manage and monitor Kubernetes resources using these rules based on Kustomize:
 
 ## Repository
 
+### `/src` directory
+
+### `/public` directory
+
+### `/deploy` directory
+
+### `/.github` directory
+
 ## Toolchain
 
 ## Roadmap
