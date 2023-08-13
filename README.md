@@ -297,6 +297,7 @@ Docker is a widely-used platform for creating, deploying, and managing container
 Kubernetes is an open-source container orchestration platform that automates the deployment and management of containerized applications with a declarative approach. It enables efficient management of computing resources, simplifies tasks such as load balancing/scaling/rollouts, enhances observability and supports multi-cloud architectures. Such requirements are handled with cloud-native service mesh (Istio, Linkerd) and multi-cluster control planes (Karmada, Kubesphere) for example. For managing Kubernetes application, there are Kustomize and Helm. Kustomize offers ability to merge custom patches with existing Kubernetes manifests, thus providing a lightweight overlay configuration system. It also avoids the need to fork repository when deploying application based on non-owned manifests. On the other hand, Helm is the Kubernetes package manager. It allows to package various Kubernetes resources under a chart, easing application deployment and customization with Go templating system. ArtifactHub is a Kubernetes package registry to register Helm repositories or distribute Helm charts and other Kubernetes resources.
 
 - Documentation: [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- Documentation: [Kubectl and Kustomize Documentation](https://kubectl.docs.kubernetes.io/guides/)
 - Documentation: [Helm Documentation](https://helm.sh/fr/docs/intro/quickstart/)
 - Kubernetes registry: [Artifact Hub](https://artifacthub.io/)
 
