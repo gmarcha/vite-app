@@ -2,6 +2,12 @@
 
 A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
 
+[![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
+
+## Example
+
+[![Landing page](.github/assets/screenshot-230813024141.png)](https://gmarcha.com)
+
 ## Requirements
 
 - `make`[^1] with:
