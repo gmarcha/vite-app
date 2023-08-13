@@ -21,7 +21,7 @@ Use Make to streamline local development for this project (like a task-runner wi
 
 ### Node usage
 
-Simplify the management of your Node.js application's lifecycle with these rules:
+Simple application lifecycle management with these rules:
 
 - `node.all`: Installs dependencies, builds the project, and starts it.
 - `node.install`: Install project dependencies using pnpm.
@@ -31,7 +31,7 @@ Simplify the management of your Node.js application's lifecycle with these rules
 
 ### Docker usage
 
-Easier and clearer application lifecycle management, monitoring and more with Docker containers using these rules:
+Multi-service and flexible application lifecycle management with `docker compose` using these rules:
 
 - `docker.all`: Build images, pull the latest versions, and start containers.
 - `docker.clean`: Stop containers, remove images, and clean up volumes.
@@ -49,11 +49,11 @@ Easier and clearer application lifecycle management, monitoring and more with Do
 - `docker.cp.from`: Copy files from a container to the host. Require SVC, SRC, DST values.
 - `docker.cp.to`: Copy files from the host to a container. Require SVC, SRC, DST values.
 
-Docker rules can optionally take a SVC value parameter to narrow command to a specific service.
+Docker rules can optionally take a SVC parameter to use command on a specific service.
 
 ### Kubernetes usage
 
-Manage and monitor Kubernetes resources using these rules based on Kustomize:
+Manage and monitor Kubernetes resources using Kustomize with these rules:
 
 - `k8s.apply`: Apply Kubernetes resources defined in `deploy/`.
 - `k8s.delete`: Delete Kubernetes resources defined in `deploy/`.
