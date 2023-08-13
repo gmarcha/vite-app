@@ -228,8 +228,8 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
 
 Typescript is a superset of JavaScript that introduces static typing (so code completion), enhancing code reliability and maintainability. Code quality is highly improved, reducing runtime errors. Typescript sources are compiled into Javascript code. Javascript remains the core scripting language for web development, powering interactive web applications.
 
-- Documentation (Typescript): [Typescript Docs](https://www.typescriptlang.org/docs/)
-- Documentation (Javascript): [Javascript MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Documentation: [Typescript Docs](https://www.typescriptlang.org/docs/)
+- Documentation: [Javascript MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ### Build Tool: Vite
 
