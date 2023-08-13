@@ -61,6 +61,97 @@ Manage and monitor Kubernetes resources using Kustomize with these rules:
 - `k8s.describe`: Describe Kubernetes resources from `deploy/`.
 - `k8s.logs`: Stream logs from Kubernetes resources in `deploy/`.
 
+## Guides
+
+### Run application with `node` and `pnpm`
+
+Node is an execution environment for javascript code and pnpm is a modern package manager for npm packages.
+
+1. Install `node` for your os-family from [nodesources](https://github.com/nodesource/distributions):
+  - Debian based
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+  - Redhat based
+```bash
+curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
+```
+
+2. Install `pnpm` package manager globally with `npm`:
+```bash
+npm i -g pnpm
+```
+
+3. Install application dependencies locally:
+```bash
+pnpm i
+```
+
+4. Run application in development mode (with hot-reloading functionality):
+```bash
+pnpm dev
+```
+
+### Create JSX or TSX components from GLTF models using `@react-three/gltfjsx`
+
+1. Download free 3D models in GLTF/GLB format or export/convert models from blender.
+
+2. Use `npx` command with a docker container if node is not installed locally (optional):
+```bash
+echo 'alias npx="docker run -it --rm ${PWD}:/app -w /app node npx"' | tee -a ~/.bashrc > /dev/null
+```
+
+3. Use `gltfjsx` command with `npx` to convert from `glb` file to `jsx` file (with shadow projection):
+```bash
+npx gltfjsx -s model.glb
+```
+
+4. Or use `gltfjsx` command to convert from `glb` file to `tsx` file:
+```bash
+npx gltfjsx -st model.glb
+```
+
+### Install a local Kubernetes cluster with `k3d`
+
+K3d is a wrapper around K3s Kubernetes distribution to run a Kubernetes cluster with Docker containers rather than virtual machines. K3s is a lightweight, flexible and ready-to-use distribution to create Kubernetes nodes. It offers ability to run nodes in server mode, agent mode or hybrid mode, thus allowing setup from single-node cluster to high-availability cluster through a various range of scenarios. It has multiple pre-installed components as an internal core-dns server, a traefik reverse-proxy, a local-path storage provider and a metrics server, which can all be disabled on installation. K3d runs each K3s nodes and each internal load balancers services as a container, providing a very straightforward local developement or automated testing environment.
+
+1. Install `k3d` with bash script from rancher's repository:
+```bash
+curl -fsSL https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
+
+2. Create a cluster[^7] with 3 servers nodes and 2 agents nodes (optional) with `k3d` cli:
+```bash
+k3d cluster create my-cluster --servers 3 --agents 2 -p "8080:80@loadbalancer" -p "8443:443@loadbalancer"
+```
+
+3. Build a container image based on `Dockerfile.prod` and tag it with your username:
+```bash
+docker build -t gmarcha/vite-app:latest -t gmarcha/vite-app:0.0.1 -f Dockerfile.prod .
+```
+
+4. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag).
+
+5. Update host value from `gmarcha.com` to `vite.localhost` in ingress ressource into `/deploy/ingress.yaml` (or redirect existing domain to localhost) and remove tls-related configuration.
+
+6. Apply Kubernetes manifests in `/deploy` directory with kustomize:
+```bash
+kubectl apply -k deploy/
+```
+
+7. Access application with curl or directly in browser at http://vite.localhost:8080.
+
+8. Delete Kubernetes resources contained in manifests in `/deploy` directory with kustomize again:
+```bash
+kubectl delete -k deploy/
+```
+
+9. Delete `k3d` cluster:
+```bash
+k3d cluster delete my-cluster
+```
+
 ## Repository
 
 Repository contains javascript/typescript, static assets and configuration resources for a Vite application.
@@ -214,3 +305,4 @@ Kubernetes is an open-source container orchestration platform that automates the
 [^4]: [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/), [install k3d](https://k3d.io/v5.5.2/#installation) to run a local cluster with docker ([configure k3d](https://k3d.io/v5.5.2/usage/exposing_services/)).
 [^5]: replace `.spec.template.spec.containers.[0].image` by your own image name and tag in `/deploy/deployment.yaml` (be careful to create secret containing credentials - username, password - for private registry).
 [^6]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
+[^7]: k3s server nodes are schedulable by default (see [documentation](https://docs.k3s.io/advanced#node-labels-and-taints)) and k3s support single-node server cluster (be careful, k3s doesn't support adding servers to single-node setup).
