@@ -111,28 +111,38 @@ curl -fsSL https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 k3d cluster create my-cluster --servers 3 --agents 2 -p "8080:80@loadbalancer" -p "8443:443@loadbalancer"
 ```
 
-3. Build a container image based on `Dockerfile.prod` and tag it with your username:
+3. Verify that nodes are up and running:
+```bash
+kubectl get nodes
+```
+
+4. Build a container image based on `Dockerfile.prod` and tag it with your username:
 ```bash
 docker build -t gmarcha/vite-app:latest -t gmarcha/vite-app:0.0.1 -f Dockerfile.prod .
 ```
 
-4. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag).
+5. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag).
 
-5. Update host value from `gmarcha.com` to `vite.localhost` in ingress ressource into `/deploy/ingress.yaml` (or redirect existing domain to localhost) and remove tls-related configuration.
+6. Update host value from `gmarcha.com` to `vite.localhost` in ingress ressource into `/deploy/ingress.yaml` (or redirect existing domain to localhost) and remove tls-related configuration.
 
-6. Apply Kubernetes manifests in `/deploy` directory with kustomize:
+7. Apply Kubernetes manifests in `/deploy` directory with kustomize:
 ```bash
 kubectl apply -k deploy/
 ```
 
-7. Access application with curl or directly in browser at http://vite.localhost:8080.
+8. Monitor pod status with kubectl and wait its readiness:
+```bash
+kubectl get pod -k deploy/
+```
 
-8. Delete Kubernetes resources contained in manifests in `/deploy` directory with kustomize again:
+9. Then access application with curl or directly in browser at http://vite.localhost:8080
+
+10. Delete Kubernetes resources contained in manifests in `/deploy` directory with kustomize again:
 ```bash
 kubectl delete -k deploy/
 ```
 
-9. Delete `k3d` cluster:
+11. Delete `k3d` cluster:
 ```bash
 k3d cluster delete my-cluster
 ```
