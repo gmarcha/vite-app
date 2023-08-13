@@ -17,7 +17,11 @@ A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
 
 ## Usage
 
-Use Make to streamline local development for this project (like a task-runner with straightforward rules). Launch project locally via `node` with `pnpm` (1), `docker` with `compose` plugin (2), or `kubectl` with a configured Kubernetes cluster (3). Note that these rules are tailored for local use and aren't intended for production scenarios.
+Use Make to streamline local development for this project (like a task-runner with straightforward rules). Launch project locally via `node` with `pnpm` (1), `docker` with `compose` plugin (2), or `kubectl` with a configured Kubernetes cluster (3). Note that these rules are tailored for local use and aren't intended for production scenarios. For example:
+
+```bash
+make docker.all
+```
 
 ### Node usage
 
