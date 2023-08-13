@@ -2,7 +2,6 @@ import { css } from "@emotion/css";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { A11yAnnouncer } from "@react-three/a11y";
 import {
   EffectComposer,
   Bloom,
@@ -78,7 +77,6 @@ function App() {
             </EffectComposer>
           </Suspense>
         </Canvas>
-        <A11yAnnouncer />
       </div>
     </>
   );
