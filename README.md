@@ -153,7 +153,7 @@ k3d cluster delete my-cluster
 
 2. Use `npx` command with a docker container if node is not installed locally (optional):
 ```bash
-echo 'alias npx="docker run -it --rm ${PWD}:/app -w /app node npx"' | tee -a ~/.bashrc > /dev/null
+echo "alias npx='docker run -it --rm ${PWD}:/app -w /app node npx'" | tee -a ~/.bashrc > /dev/null
 ```
 
 3. Use `gltfjsx` command with `npx` to convert from `glb` file to `jsx` file (with shadow projection):
