@@ -99,7 +99,7 @@ pnpm dev
 
 ### Install a local Kubernetes cluster with `k3d`
 
-K3d is a wrapper around K3s Kubernetes distribution to run a Kubernetes cluster with Docker containers rather than virtual machines. K3s is a lightweight, flexible and ready-to-use distribution to create Kubernetes nodes. It offers ability to run nodes in server mode, agent mode or hybrid mode, thus allowing setup from single-node cluster to high-availability cluster through a various range of scenarios. It has multiple pre-installed components as an internal core-dns server, a traefik reverse-proxy, a local-path storage provider and a metrics server, which can all be disabled on installation. K3d runs each K3s nodes and each internal load balancers services as a container, providing a very straightforward local developement or automated testing environment.
+K3d is a wrapper around K3s Kubernetes distribution to run a Kubernetes cluster with Docker containers rather than virtual machines. K3s is a lightweight, flexible and ready-to-use distribution to create Kubernetes nodes. It offers ability to run schedulable server nodes or agent nodes, thus allowing setup from single-node cluster to high-availability cluster through a various range of scenarios. It has multiple pre-installed components as an internal core-dns server, a traefik reverse-proxy, a local-path storage provider and a metrics server, which can all be disabled on installation. K3d runs each K3s nodes and each internal load balancers services as a container, providing a very straightforward local developement or automated testing environment.
 
 1. Install `k3d` with bash script from rancher's repository:
 ```bash
