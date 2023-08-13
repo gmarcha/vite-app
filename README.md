@@ -212,5 +212,5 @@ Kubernetes is an open-source container orchestration platform that automates the
 [^2]: [follow instructions](https://github.com/nodesource/distributions) depending on your os-family, then install pnpm globally with node default package manager, npm: `npm -g i pnpm`.
 [^3]: [follow instructions](https://docs.docker.com/engine/install/#server) for server (and not desktop) version depending on your distribution, then [follow post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/).
 [^4]: [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/), [install k3d](https://k3d.io/v5.5.2/#installation) to run a local cluster with docker ([configure k3d](https://k3d.io/v5.5.2/usage/exposing_services/)).
-[^5]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
-[^6]: replace `.spec.template.spec.containers.[0].image` by your own image name and tag in `/deploy/deployment.yaml` (be careful to create secret containing credentials - username, password - for private registry).
+[^5]: replace `.spec.template.spec.containers.[0].image` by your own image name and tag in `/deploy/deployment.yaml` (be careful to create secret containing credentials - username, password - for private registry).
+[^6]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
