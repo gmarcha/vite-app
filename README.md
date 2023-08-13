@@ -13,7 +13,7 @@ A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
 - `make`[^1] with:
   - `node` and `pnpm` installed locally[^2] or,
   - `docker` and `compose` plugin installed locally[^3] or,
-  - `kubectl` with a `KUBECONFIG` file configured to a running cluster[^4].
+  - `kubectl` with a `KUBECONFIG` file configured to a running cluster[^4][^5].
 
 ## Usage
 
@@ -88,7 +88,7 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
 - Contains application source code in `*.tsx` format,
   - application code entrypoint (root react element) in `/src/main.tsx`,
   - application main component (app component) in `/src/App.tsx`,
-  - application components in `/src/components/**/*.tsx` (such as `@react-three/gltfjsx` components[^5]),
+  - application components in `/src/components/**/*.tsx` (such as `@react-three/gltfjsx` components[^6]),
   - internal static assets in `/src/assets/**/*` (such as `*.svg` and `*.glb` 3D models).
 
 ### `/public` directory
@@ -213,3 +213,4 @@ Kubernetes is an open-source container orchestration platform that automates the
 [^3]: [follow instructions](https://docs.docker.com/engine/install/#server) for server (and not desktop) version depending on your distribution, then [follow post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/).
 [^4]: [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/), [install k3d](https://k3d.io/v5.5.2/#installation) to run a local cluster with docker ([configure k3d](https://k3d.io/v5.5.2/usage/exposing_services/)).
 [^5]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
+[^6]: replace `.spec.template.spec.containers.[0].image` by your own image name and tag in `/deploy/deployment.yaml` (be careful to create secret containing credentials - username, password - for private registry).
