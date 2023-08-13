@@ -121,7 +121,7 @@ kubectl get nodes
 docker build -t gmarcha/vite-app:latest -t gmarcha/vite-app:0.0.1 -f Dockerfile.prod .
 ```
 
-5. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag).
+5. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag) and remove image pull secrets configuration.
 
 6. Update host value from `gmarcha.com` to `vite.localhost` in ingress ressource into `/deploy/ingress.yaml` (or redirect existing domain to localhost) and remove tls-related configuration.
 
