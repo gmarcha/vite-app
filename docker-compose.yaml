@@ -1,5 +1,8 @@
 version: '3'
 services:
+
+# Dev profile
+
   traefik:
     profiles: ["dev"]
     restart: unless-stopped
@@ -24,8 +27,37 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    # volumes:
-    #   - ".:/home/node/app"
-    #   - "/home/node/app/node_modules"
+    volumes:
+      - ".:/home/node/app"
+      - "/home/node/app/node_modules"
     environment:
       - NODE_ENV=development
+
+# Prod profile
+
+  traefik:
+    profiles: ["prod"]
+    restart: unless-stopped
+    image: "traefik:v2.10"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  vite-app:
+    profiles: ["prod"]
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vite-app.rule=Host(`vite-app.localhost`)"
+      - "traefik.http.routers.vite-app.entrypoints=web"
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    environment:
+      - NODE_ENV=production
