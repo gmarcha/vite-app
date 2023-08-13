@@ -93,25 +93,6 @@ pnpm i
 pnpm dev
 ```
 
-### Create JSX or TSX components from GLTF models using `@react-three/gltfjsx`
-
-1. Download free 3D models in GLTF/GLB format or export/convert models from blender.
-
-2. Use `npx` command with a docker container if node is not installed locally (optional):
-```bash
-echo 'alias npx="docker run -it --rm ${PWD}:/app -w /app node npx"' | tee -a ~/.bashrc > /dev/null
-```
-
-3. Use `gltfjsx` command with `npx` to convert from `glb` file to `jsx` file (with shadow projection):
-```bash
-npx gltfjsx -s model.glb
-```
-
-4. Or use `gltfjsx` command to convert from `glb` file to `tsx` file:
-```bash
-npx gltfjsx -st model.glb
-```
-
 ### Install a local Kubernetes cluster with `k3d`
 
 K3d is a wrapper around K3s Kubernetes distribution to run a Kubernetes cluster with Docker containers rather than virtual machines. K3s is a lightweight, flexible and ready-to-use distribution to create Kubernetes nodes. It offers ability to run nodes in server mode, agent mode or hybrid mode, thus allowing setup from single-node cluster to high-availability cluster through a various range of scenarios. It has multiple pre-installed components as an internal core-dns server, a traefik reverse-proxy, a local-path storage provider and a metrics server, which can all be disabled on installation. K3d runs each K3s nodes and each internal load balancers services as a container, providing a very straightforward local developement or automated testing environment.
@@ -150,6 +131,25 @@ kubectl delete -k deploy/
 9. Delete `k3d` cluster:
 ```bash
 k3d cluster delete my-cluster
+```
+
+### Create JSX or TSX components from GLTF models using `@react-three/gltfjsx`
+
+1. Download free 3D models in GLTF/GLB format or export/convert models from blender.
+
+2. Use `npx` command with a docker container if node is not installed locally (optional):
+```bash
+echo 'alias npx="docker run -it --rm ${PWD}:/app -w /app node npx"' | tee -a ~/.bashrc > /dev/null
+```
+
+3. Use `gltfjsx` command with `npx` to convert from `glb` file to `jsx` file (with shadow projection):
+```bash
+npx gltfjsx -s model.glb
+```
+
+4. Or use `gltfjsx` command to convert from `glb` file to `tsx` file:
+```bash
+npx gltfjsx -st model.glb
 ```
 
 ## Repository
