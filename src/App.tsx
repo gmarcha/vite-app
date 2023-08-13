@@ -23,13 +23,7 @@ function App() {
           height: 100vh;
         `}
       >
-        <Canvas
-          className={css`
-            background: #232323;
-          `}
-          shadows
-          camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}
-        >
+        <Canvas shadows camera={{ zoom: 3, fov: 30, position: [50, 70, 50] }}>
           {/* <CameraControls makeDefault /> */}
           <OrbitControls
             autoRotate
