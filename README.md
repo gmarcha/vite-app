@@ -77,11 +77,6 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
   - application configuration (`/package.json`, `/tsconfig*.json`, `/vite.config.ts` and `/.eslintrc.cjs`),
   - application entrypoint (`/index.html`).
 
-### `/.github/` directory
-
-- Contains `Github Actions` workflows to build and push application image on registry (here, ghcr.io) on `push/tags` events,
-  - pipeline in `/.github/workflows/ci.yaml` (based on `Docker` public actions).
-
 ### `/src` directory
 
 - Contains application source code in `*.tsx` format,
@@ -101,9 +96,14 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
   - HTML and public resources in `/dist/**/*`,
   - javascript and internal assets in `/dist/assets/**/*`.
 
+### `/.github/` directory
+
+- Contains `Github Actions` workflows to build and push application image on registry (here, ghcr.io) on `push/tags` events,
+  - pipeline in `/.github/workflows/ci.yaml` (based on `Docker` public actions).
+
 ### `/deploy` directory
 
-- Contains Kubenetes `YAML` manifests to deploy application in production,
+- Contains `Kubernetes` `YAML` manifests to deploy application in production,
   - application manifests are stored in the same repository as the source code,
   - infrastructure manifests live on their own repository-ies,
 - Contains sample Kubernetes resources for a deployment,
@@ -112,6 +112,82 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
   - a deployment for a pod with one container based on image hosted on private registry.
 
 ## Toolchain
+
+### Programming Languages: Typescript/Javascript
+
+Typescript is a superset of JavaScript that introduces static typing (so code completion), enhancing code reliability and maintainability. Code quality is highly improved, reducing runtime errors. Typescript sources are compiled into Javascript code. Javascript remains the core scripting language for web development, powering interactive web applications.
+
+- Documentation (Typescript): [Typescript Docs](https://www.typescriptlang.org/docs/)
+- Documentation (Javascript): [Javascript MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+### Build Tool: Vite
+
+Vite is a modern build tool and development server designed to optimize frontend development workflows. It's particularly well-suited for building simple single-page applications quickly with a strong emphasize on fast development. Moreover `Vite` is non-opinionated about what component library you are using: it works out-of-the-box with Vue, React, Preact, Svelte and more! It also works with both typescript and javascript. It can use SWC rust-based compiler for typescript-react projects.
+
+- Documentation: [Vite Getting Started](https://vitejs.dev/guide/)
+- Github repository: [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
+
+### Javascript Library: React
+
+React is a widely adopted Javascript library for creating interactive user interfaces. It employs a component-based architecture, allowing developers to build and to shape UI with reusable components efficiently. React is particularly optimized to hydrate components based on data change, handled through built-in or custom hooks. In my opinion, JSX/TSX templating system is more developer friendly than a pure templating system such as Svelte/Vue, which has non-trivial caveats in complex situations. It has a vast ecosystem ranging from a wide range of frameworks (Next.js, Remix, Blitz) with various design standard to a plenty of react-ui-component libraries (MaterialUI, Mantine, ChakraUI) with different integration methods.
+
+- Documentation: [React Documentation](https://react.dev/learn)
+- Documentation: [Next Documentation](https://nextjs.org/docs)
+- Documentation: [Remix Documentation](https://remix.run/docs/en/main)
+- Documentation: [Mantine Documentation](https://mantine.dev/pages/getting-started/)
+- Documentation: [ChakraUI Documentation](https://chakra-ui.com/getting-started)
+
+---
+
+### Javascript 3D Library: Three.js
+
+Three.js is a popular Javascript library simplifying 3D graphics and animations in web browsers. It allows to create simple objects based on WebGL features. Those objects are scenes, meshes, cameras, lights, physics and effects for example. Nowadays you can even use it to create advanced graphics based on ray-casting, to import 3D models into web application or to render VR environment. Three still has a difficult learning curve and is very complex to implement clean data changes and user interactions.
+
+- Documentation: [Three.js Documentation](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
+- Examples: [Three.js Examples](https://threejs.org/examples/#webgl_animation_keyframes)
+
+### React 3D Library: React-Three-Fiber (r3f)
+
+React-Three-Fiber leverages the power of React and Three.js, providing a declarative approach to integrating 3D graphics into React applications. It allows to write three objects in a JSX or TSX fashion, thus allowing users to create complex scenes tightly integrated with react-components lifecycle. Additionally react-three project supplies plenty of libraries to handle various use-cases: `@react-three/fiber` for basic hooks and components, `@react-three/drei` for advanced components, `@react-three/a11y` for accesibility and interactivity, `@react-three/postprocessing` for astonishing and dead-simple render effects, `@react-three/gltfjsx` to convert 3D model from `*.glb` to `*.{j,t}sx` components, `@react-three/xr` to handle VR/AR events, and a lot more...
+
+- Documentation: [@react-three/fiber Documentation](https://docs.pmnd.rs/react-three-fiber/getting-started/your-first-scene)
+- Github repository: [@react-three/drei Documentation](https://github.com/pmndrs/drei)
+- Github repository: [@react-three/a11y Documentation](https://github.com/pmndrs/react-three-a11y)
+- Github repository: [@react-three/postprocessing Documentation](https://github.com/pmndrs/react-postprocessing)
+- Github repository: [@react-three/gltfjsx Documentation](https://github.com/pmndrs/gltfjsx)
+- Github repository: [@react-three/xr Documentation](https://github.com/pmndrs/react-xr)
+- Examples: [React-Three-Fiber Examples](https://docs.pmnd.rs/react-three-fiber/getting-started/examples)
+
+### 3D Modeling Software: Blender
+
+Blender is a versatile open-source 3D creation suite suitable for a wide range of tasks, including modeling, animating, rendering, and more. It can be harnessed to model complex 3D scenes with sculpting, texture shading, or even geometry-nodes based tools. Then it has the capability to export 3D models, materials and animation sequences in a specific format to a future integration in a web, desktop or game application. It can also be utilized to render content directly in Blender tool suite and export images, animated content, videos.
+
+- Documentation: [Blender Manual 3.6.1](https://docs.blender.org/manual/en/3.6/?utm_source=blender-3.6.1)
+- Tutorials: [Blender Youtube Playlist](https://www.blender.org/support/tutorials/)
+
+---
+
+### Build Automation: Make
+
+Make is a versatile build automation tool employing "Makefiles" to define tasks and dependencies. It helps streamline project workflows and build processes. Although more modern build tools exists, Make serves as a very lightweight task-runners to bootstrap projects or "glue" tasks in a local environment. It replaces `json-scripts` in language-agnostic environment.
+
+- Documentation: [GNU Make Manual](https://www.gnu.org/software/make/manual/make.html)
+
+### Containerization: Docker
+
+Docker is a widely-used platform for creating, deploying, and managing containers. Containers provide a consistent and isolated environment for applications, ensuring that they run reliably across various environments. This is particularly useful for flexible local development practices (in comparison to development in virtual machines).
+
+- Documentation: [Docker Documentation](https://docs.docker.com/)
+- Documentation: [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+- Container registry: [Dockerhub Registry](https://hub.docker.com/search?q=)
+
+### Container Orchestration: Kubernetes
+
+Kubernetes is an open-source container orchestration platform that automates the deployment and management of containerized applications with a declarative approach. It enables efficient management of computing resources, simplifies tasks such as load balancing/scaling/rollouts, enhances observability and supports multi-cloud architectures. Such requirements are handled with cloud-native service mesh (Istio, Linkerd) and multi-cluster control planes (Karmada, Kubesphere) for example. On the other hand, Helm is the Kubernetes package manager. It allows to package various Kubernetes resources under a common resource, facilitating application deployment. ArtifactHub is a Kubernetes package registry to register Helm repositories or distribute Helm charts and other Kubernetes resources.
+
+- Documentation: [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- Documentation: [Helm Documentation](https://helm.sh/fr/docs/intro/quickstart/)
+- Kubernetes registry: [Artifact Hub](https://artifacthub.io/)
 
 ## Roadmap
 
