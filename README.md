@@ -1,6 +1,6 @@
 # vite-app
 
-A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
+A 3D landing page built with Typescript, Vite and React-Three-Fiber (r3f).
 
 [![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
 
