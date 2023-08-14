@@ -1,8 +1,11 @@
-# vite-app
+# vite-app <br> [![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
 
 A 3D landing page built with Typescript, Vite, React-Three-Fiber (r3f) and Blender.
 
-[![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
+[![TypeScript](https://img.shields.io/badge/ts-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+[![React](https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://react.dev/learn)
+[![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)](https://docs.blender.org/manual/en/latest/)
 
 ## Example
 
