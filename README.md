@@ -308,7 +308,7 @@ Kubernetes is an open-source container orchestration platform that automates the
 ## Roadmap
 
 - Add animation to `*.glb` 3D models.
-- Migrate from `vite` to `nextjs` (from a single-page application to a hybrid server-sided renderer)?
+- Migrate from `vite` to `nextjs`.
 
 ## Author
 
