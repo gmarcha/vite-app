@@ -5,6 +5,7 @@ A 3D landing page built with Typescript, Vite, react-three-fiber (r3f) and Blend
 [![TypeScript](https://img.shields.io/badge/ts-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/guide/)
 [![React](https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://react.dev/learn)
+[![Emotion](https://img.shields.io/badge/emotion-%23d26ac1.svg?style=for-the-badge&logo=jss&logoColor=white)](https://emotion.sh/docs/introduction)
 [![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)](https://docs.blender.org/manual/en/latest/)
 
 ## Example
