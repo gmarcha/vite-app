@@ -1,8 +1,11 @@
-# vite-app
+# vite-app <br> [![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
 
-A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
+A 3D landing page built with Typescript, Vite, react-three-fiber (r3f) and Blender.
 
-[![CI](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml/badge.svg)](https://github.com/gmarcha/vite-app/actions/workflows/ci.yaml)
+[![TypeScript](https://img.shields.io/badge/ts-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
+[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/guide/)
+[![React](https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://react.dev/learn)
+[![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)](https://docs.blender.org/manual/en/latest/)
 
 ## Example
 
@@ -13,15 +16,20 @@ A landing page built with Typescript, Vite and React-Three-Fiber (r3f).
 - `make`[^1] with:
   - `node` and `pnpm` installed locally[^2] or,
   - `docker` and `compose` plugin installed locally[^3] or,
-  - `kubectl` with a `KUBECONFIG` file configured to a running cluster[^4].
+  - `kubectl` with a `KUBECONFIG` file configured to a running cluster[^4][^5].
 
 ## Usage
 
-Use Make to streamline local development for this project (like a task-runner with straightforward rules). Launch project locally via `node` with `pnpm` (1), `docker` with `compose` plugin (2), or `kubectl` with a configured Kubernetes cluster (3). Note that these rules are tailored for local use and aren't intended for production scenarios.
+Use Make to streamline local development for this project (like a task-runner with straightforward rules). Launch project locally via `node` with `pnpm` (1), `docker` with `compose` plugin (2), or `kubectl` with a configured Kubernetes cluster (3). Note that these rules are tailored for local use and aren't intended for production scenarios. For example:
+
+```bash
+make node.all
+make docker.all
+```
 
 ### Node usage
 
-Simplify the management of your Node.js application's lifecycle with these rules:
+Simple application lifecycle management with these rules:
 
 - `node.all`: Installs dependencies, builds the project, and starts it.
 - `node.install`: Install project dependencies using pnpm.
@@ -31,7 +39,7 @@ Simplify the management of your Node.js application's lifecycle with these rules
 
 ### Docker usage
 
-Easier and clearer application lifecycle management, monitoring and more with Docker containers using these rules:
+Multi-service and flexible application lifecycle management with `docker compose` using these rules:
 
 - `docker.all`: Build images, pull the latest versions, and start containers.
 - `docker.clean`: Stop containers, remove images, and clean up volumes.
@@ -49,11 +57,11 @@ Easier and clearer application lifecycle management, monitoring and more with Do
 - `docker.cp.from`: Copy files from a container to the host. Require SVC, SRC, DST values.
 - `docker.cp.to`: Copy files from the host to a container. Require SVC, SRC, DST values.
 
-Docker rules can optionally take a SVC value parameter to narrow command to a specific service.
+Docker rules can optionally take a SVC parameter to use command on a specific service.
 
 ### Kubernetes usage
 
-Manage and monitor Kubernetes resources using these rules based on Kustomize:
+Manage and monitor Kubernetes resources using Kustomize with these rules:
 
 - `k8s.apply`: Apply Kubernetes resources defined in `deploy/`.
 - `k8s.delete`: Delete Kubernetes resources defined in `deploy/`.
@@ -69,7 +77,7 @@ Repository contains javascript/typescript, static assets and configuration resou
 
 Static resources in `/dist` directory are bundled, minified and optimized `Javascript` assets built by a typescript-compiler from source code containing typescript-react components. `Typescript` adds a strong-typing system which improves drastically code completion and error detection from a developer perspective. Components are written with `React` because even if, nowadays, "vanilla" javascript has built-in high-level functionalities, `React` became a lot like node itself: it is not only used for the reason that it provides great benefits but rather than it has a rich and strong ecosystem. Various node libraries offers built-in integration for react and numerous libraries are even built-on react hooks or `JSX` functionalities. `JSX` (or `TSX` for typescript) is the format used in react ecosystem to write `HTML` templates.
 
-Styles are directly written in components thanks to `Emotion` "css-in-js" engine. It integrates flawlessly with existing css-component libraries like `Tailwindcss`. You could use react-component libraries such as `Mantine` (or more opinionated `MaterialUI`) to import ready-to-use components for layouts, form inputs, theming (dark, light, others), notification system... `Mantine` components are fully customizable through `Emotion` API. Global `CSS` directives should be avoided to ensure maintainability (!important directives notably).
+Styles are directly written in components thanks to `Emotion` "css-in-js" engine (except for those generated by create-vite template). It integrates flawlessly with existing css-component libraries like `Tailwindcss`. You could use react-ui-component libraries such as `Mantine` (or more opinionated `MaterialUI`) to import ready-to-use components for layouts, form inputs, theming (dark, light, others), notification system... `Mantine` components are fully customizable through `Emotion` API. Global `CSS` directives should be avoided to ensure maintainability (!important directives notably).
 
 For 3D integration, three.js is a very known library in javascript ecosystem. It provides a wrapper on WebGL to create scenes, cameras, meshes in web canvas. Nevertheless it is still complex to design performant 3D interfaces with a "simple" library. You should use react-three-fiber ecosystem as a framework to build such a system. It provides react components with out-of-the-box functionalities through libraries such as `@react-three/fiber`, `@react-three/drei` (++), `@react-three/a11y` or `@react-three/postprocessing`. Thus it leverages react hydration capabilities to provide dynamic, flexible and very efficient interfaces.
 
@@ -88,7 +96,7 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
 - Contains application source code in `*.tsx` format,
   - application code entrypoint (root react element) in `/src/main.tsx`,
   - application main component (app component) in `/src/App.tsx`,
-  - application components in `/src/components/**/*.tsx` (such as `@react-three/gltfjsx` components[^5]),
+  - application components in `/src/components/**/*.tsx` (such as `@react-three/gltfjsx` components[^6]),
   - internal static assets in `/src/assets/**/*` (such as `*.svg` and `*.glb` 3D models).
 
 ### `/public` directory
@@ -117,14 +125,116 @@ Use `node`/`pnpm` to start and use project locally. You could like to use `docke
   - a secured ingress serving one host,
   - a deployment for a pod with one container based on image hosted on private registry.
 
+
+## Guides
+
+### Run application with `node` and `pnpm`
+
+Node is an execution environment for javascript code and pnpm is a modern package manager for npm packages.
+
+1. Install `node` for your os-family from [nodesources](https://github.com/nodesource/distributions):
+  - Debian based
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+  - Redhat based
+```bash
+curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
+```
+
+2. Install `pnpm` package manager globally with `npm`:
+```bash
+npm i -g pnpm
+```
+
+3. Install application dependencies locally:
+```bash
+pnpm i
+```
+
+4. Run application in development mode (with hot-reloading functionality):
+```bash
+pnpm dev
+```
+
+### Install a local Kubernetes cluster with `k3d`
+
+K3d is a wrapper around K3s Kubernetes distribution to run a Kubernetes cluster with Docker containers rather than virtual machines. K3s is a lightweight, flexible and ready-to-use distribution to create Kubernetes nodes. It offers ability to run schedulable server nodes or agent nodes, thus allowing setup from single-node cluster to high-availability cluster through a various range of scenarios. It has multiple pre-installed components as an internal core-dns server, a traefik reverse-proxy, a local-path storage provider and a metrics server, which can all be disabled on installation. K3d runs each K3s nodes and each internal load balancers services as a container, providing a very straightforward local developement or automated testing environment.
+
+1. Install `k3d` with bash script from rancher's repository:
+```bash
+curl -fsSL https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
+
+2. Create a cluster[^7] with 3 servers nodes and 2 agents nodes (optional) with `k3d` cli:
+```bash
+k3d cluster create my-cluster --servers 3 --agents 2 -p "8080:80@loadbalancer" -p "8443:443@loadbalancer"
+```
+
+3. Verify that nodes are up and running:
+```bash
+kubectl get nodes
+```
+
+4. Build a container image based on `Dockerfile.prod` and tag it with your username:
+```bash
+docker build -t gmarcha/vite-app:latest -t gmarcha/vite-app:0.0.1 -f Dockerfile.prod .
+```
+
+5. Then update container image name and tag in `/deploy/deployment.yaml` (or build your image tag based on used tag) and remove image pull secrets configuration.
+
+6. Update host value from `gmarcha.com` to `vite.localhost` in ingress ressource into `/deploy/ingress.yaml` (or redirect existing domain to localhost) and remove tls-related configuration.
+
+7. Apply Kubernetes manifests in `/deploy` directory with kustomize:
+```bash
+kubectl apply -k deploy/
+```
+
+8. Monitor pod status with kubectl and wait its readiness:
+```bash
+kubectl get pod -k deploy/
+```
+
+9. Then access application with curl or directly in browser at http://vite.localhost:8080
+
+10. Delete Kubernetes resources contained in manifests in `/deploy` directory with kustomize again:
+```bash
+kubectl delete -k deploy/
+```
+
+11. Delete `k3d` cluster:
+```bash
+k3d cluster delete my-cluster
+```
+
+### Create JSX or TSX components from GLTF models using `@react-three/gltfjsx`
+
+1. Download free 3D models in GLTF/GLB format or export/convert models from blender.
+
+2. Use `npx` command with a docker container if node is not installed locally (optional):
+```bash
+echo "alias npx='docker run -it --rm ${PWD}:/app -w /app node npx'" | tee -a ~/.bashrc > /dev/null
+```
+
+3. Use `gltfjsx` command with `npx` to convert from `glb` file to `jsx` file (with shadow projection):
+```bash
+npx gltfjsx -s model.glb
+```
+
+4. Or use `gltfjsx` command to convert from `glb` file to `tsx` file:
+```bash
+npx gltfjsx -st model.glb
+```
+
 ## Toolchain
 
 ### Programming Languages: Typescript/Javascript
 
 Typescript is a superset of JavaScript that introduces static typing (so code completion), enhancing code reliability and maintainability. Code quality is highly improved, reducing runtime errors. Typescript sources are compiled into Javascript code. Javascript remains the core scripting language for web development, powering interactive web applications.
 
-- Documentation (Typescript): [Typescript Docs](https://www.typescriptlang.org/docs/)
-- Documentation (Javascript): [Javascript MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Documentation: [Typescript Docs](https://www.typescriptlang.org/docs/)
+- Documentation: [Javascript MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ### Build Tool: Vite
 
@@ -189,16 +299,17 @@ Docker is a widely-used platform for creating, deploying, and managing container
 
 ### Container Orchestration: Kubernetes
 
-Kubernetes is an open-source container orchestration platform that automates the deployment and management of containerized applications with a declarative approach. It enables efficient management of computing resources, simplifies tasks such as load balancing/scaling/rollouts, enhances observability and supports multi-cloud architectures. Such requirements are handled with cloud-native service mesh (Istio, Linkerd) and multi-cluster control planes (Karmada, Kubesphere) for example. On the other hand, Helm is the Kubernetes package manager. It allows to package various Kubernetes resources under a common resource, facilitating application deployment. ArtifactHub is a Kubernetes package registry to register Helm repositories or distribute Helm charts and other Kubernetes resources.
+Kubernetes is an open-source container orchestration platform that automates the deployment and management of containerized applications with a declarative approach. It enables efficient management of computing resources, simplifies tasks such as load balancing/scaling/rollouts, enhances observability and supports multi-cloud architectures. Such requirements are handled with cloud-native service mesh (Istio, Linkerd) and multi-cluster control planes (Karmada, Kubesphere) for example. For managing Kubernetes application, there are Kustomize and Helm. Kustomize offers ability to merge custom patches with existing Kubernetes manifests, thus providing a lightweight overlay configuration system. It also avoids the need to fork repository when deploying application based on non-owned manifests. On the other hand, Helm is the Kubernetes package manager. It allows to package various Kubernetes resources under a chart, easing application deployment and customization with Go templating system. ArtifactHub is a Kubernetes package registry to register Helm repositories or distribute Helm charts and other Kubernetes resources.
 
 - Documentation: [Kubernetes Documentation](https://kubernetes.io/docs/home/)
+- Documentation: [Kubectl and Kustomize Documentation](https://kubectl.docs.kubernetes.io/guides/)
 - Documentation: [Helm Documentation](https://helm.sh/fr/docs/intro/quickstart/)
 - Kubernetes registry: [Artifact Hub](https://artifacthub.io/)
 
 ## Roadmap
 
 - Add animation to `*.glb` 3D models.
-- Migrate from `vite` to `nextjs` (from a single-page application to a hybrid server-sided renderer)?
+- Migrate from `vite` to `nextjs`.
 
 ## Author
 
@@ -212,4 +323,6 @@ Kubernetes is an open-source container orchestration platform that automates the
 [^2]: [follow instructions](https://github.com/nodesource/distributions) depending on your os-family, then install pnpm globally with node default package manager, npm: `npm -g i pnpm`.
 [^3]: [follow instructions](https://docs.docker.com/engine/install/#server) for server (and not desktop) version depending on your distribution, then [follow post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/).
 [^4]: [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/), [install k3d](https://k3d.io/v5.5.2/#installation) to run a local cluster with docker ([configure k3d](https://k3d.io/v5.5.2/usage/exposing_services/)).
-[^5]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
+[^5]: replace `.spec.template.spec.containers.[0].image` by your own image name and tag in `/deploy/deployment.yaml` (be careful to create secret containing credentials - username, password - for private registry).
+[^6]: use `npx gltfjsx -ts <model.glb>` to create TSX component (with shadows) from gltf model.
+[^7]: k3s server nodes are schedulable by default (see [documentation](https://docs.k3s.io/advanced#node-labels-and-taints)) and k3s support single-node server cluster (be careful, k3s doesn't support adding servers to single-node setup).
