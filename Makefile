@@ -5,7 +5,7 @@ NS ?= default
 OUT ?= wide
 
 DOCKER := docker compose -f $(COMPOSE) --profile $(ENV)
-KUBECTL := kubectl --kubeconfig $(KUBECONFIG)
+KUBECTL := kubectl --kubeconfig $(KUBECONFIG) -n $(NS)
 TYPE := type > /dev/null
 YQ := docker run -i --rm -v $(PWD):/workdir mikefarah/yq
 
