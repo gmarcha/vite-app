@@ -23,6 +23,7 @@ A 3D landing page built with Typescript, Vite, react-three-fiber (r3f) and Blend
 Use Make to streamline local development for this project (like a task-runner with straightforward rules). Launch project locally via `node` with `pnpm` (1), `docker` with `compose` plugin (2), or `kubectl` with a configured Kubernetes cluster (3). Note that these rules are tailored for local use and aren't intended for production scenarios. For example:
 
 ```bash
+make node.all
 make docker.all
 ```
 
