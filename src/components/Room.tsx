@@ -246,10 +246,10 @@ export default function Room(props: JSX.IntrinsicElements["group"]) {
           rotation={[-Math.PI / 2, 0, Math.PI / 2]}
         >
           <iframe
-            title="Homemade frontend for https://durot.co/"
+            title="Documentation for KubeSphere"
             width={524}
             height={414}
-            src="https://durot.co/"
+            src="https://kubesphere.io/"
           />
         </Html>
       </mesh>
